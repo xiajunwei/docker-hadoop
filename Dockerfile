@@ -68,9 +68,9 @@ RUN $HADOOP_PREFIX/bin/hdfs namenode -format
 # fixing the libhadoop.so like a boss
 RUN rm  /usr/local/hadoop/lib/native/*
  
-ADD hadoop-native/hadoop-native-64-2.6.0.tar /usr/local/hadoop/lib/native/tmp/
-RUN tar -x /usr/local/hadoop/lib/native/tmp/hadoop-native-64-2.6.0.tar -C /usr/local/hadoop/lib/native/
-RUN rm -rf /usr/local/hadoop/lib/native/tmp/
+ADD hadoop-native /usr/local/hadoop/lib/native/
+RUN tar -x /usr/local/hadoop/lib/native/hadoop-native-64-2.6.0.tar -C /usr/local/hadoop/lib/native/
+RUN rm -rf /usr/local/hadoop/lib/native/hadoop-native-64-2.6.0.tar
 
 ADD ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
